@@ -3,7 +3,7 @@ import { FaFacebook, FaTwitter, FaInstagram, FaTiktok, FaBell } from 'react-icon
 
 const Socials = () => {
   return (
-    <div className="socials-container p-6 bg-gray-100 rounded-lg shadow-md">
+    <div className="socials-container p-6 bg-blue-700 rounded-lg shadow-md">
       <h2 className="text-2xl font-bold text-gray-800 mb-4">Social Sharing</h2>
       <div className="social-icons flex space-x-4">
         <FaFacebook className="text-blue-600 w-6 h-6 cursor-pointer hover:text-blue-800" />
