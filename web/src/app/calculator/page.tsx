@@ -7,7 +7,7 @@ const CalculatorPage = () => {
   const [tokenAmount, setTokenAmount] = useState("");
   const [marketplaceVolume, setMarketplaceVolume] = useState(1);
   const [totalSupply, setTotalSupply] = useState(1000000000);
-  const [solPrice, setSolPrice] = useState(142.81);
+  const [solPrice] = useState(142.81); // Removed setSolPrice
 
   const handleReset = () => {
     setTokenAmount("");
@@ -36,7 +36,7 @@ const CalculatorPage = () => {
     <div className="flex flex-col items-center justify-between min-h-screen bg-gradient-to-b from-blue-900 to-blue-700 text-white">
     {/* Header Component */}
     <Header />
-    <div className="min-h-screen bg-blue-900 text-white flex items-center justify-center p-4">
+    <div className="min-h-screen min-w-full bg-blue-900 text-white flex items-center justify-center p-4">
       <div className="bg-blue-800 p-8 rounded-lg shadow-lg w-full max-w-lg">
         <h1 className="text-2xl font-bold mb-4 text-center">$SZ Earnings Calculator</h1>
         <p className="text-sm text-center mb-6">

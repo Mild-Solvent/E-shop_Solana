@@ -1,10 +1,14 @@
 import React from 'react';
+import Image from 'next/image';
+import Link from 'next/link'; // Import Link from next/link
 
-const Header: React.FC = () => {
+const Header = () => {
   return (
     <header className="w-full flex justify-between items-center px-5 py-3 bg-[#00103D] text-white">
-      <div className="flex items-center">
-        <img src="/path-to-logo.png" alt="Logo" className="h-10" />
+      <div className="flex items-center rounded-full">
+        <Link href="/"> {/* Wrap the Image with Link */}
+          <Image src="/Logo.jpeg" alt="Logo" width={50} height={40} className="h-10" />
+        </Link>
       </div>
       <nav className="flex-1 ml-5">
         <ul className="flex justify-center space-x-6 list-none m-0 p-0">

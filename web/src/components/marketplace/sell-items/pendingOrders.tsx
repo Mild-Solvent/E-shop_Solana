@@ -63,6 +63,7 @@ const PendingOffers = () => {
                 <span className="font-bold">{order.cancelTimer}</span>
               </p>
             )}
+            <p>Order isn&apos;t completed yet.</p>
             <button className="mt-4 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg">
               Update Status
             </button>

@@ -15,6 +15,7 @@ export default function Home() {
         <button className="mt-8 px-6 py-3 bg-blue-600 hover:bg-blue-500 rounded-lg text-white font-medium text-lg">
           Get Started
         </button>
+        <p>Click &quot;Sign Up&quot; to get started!</p>
       </header>
 
       {/* Disclaimer Section */}

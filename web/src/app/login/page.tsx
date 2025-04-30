@@ -51,6 +51,7 @@ const LoginPage = () => {
             Sign up
           </a>
         </p>
+        <p>Don&apos;t have an account? Sign up here.</p>
       </div>
     </div>
     </div>

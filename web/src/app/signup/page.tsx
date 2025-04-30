@@ -4,7 +4,6 @@ import Header from '@/components/Header';
 const RegisterPage = () => {
   return (
     <div className="flex flex-col items-center justify-between min-h-screen bg-gradient-to-b from-blue-900 to-blue-700 text-white">
-    {/* Header */}
     <Header />
     <div className="flex items-center justify-center min-h-screen min-w-full bg-gradient-to-b from-blue-900 to-blue-800">
 
@@ -72,7 +71,7 @@ const RegisterPage = () => {
         </p>
       </div>
     </div>
-    // </div>
+    </div>
   );
 };
 
