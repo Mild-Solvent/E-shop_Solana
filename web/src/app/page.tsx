@@ -1,11 +1,6 @@
-import Header from '../components/Header'; // Adjust the path if necessary
-
 export default function Home() {
   return (
     <div className="flex flex-col items-center justify-between min-h-screen bg-gradient-to-b from-blue-900 to-blue-700 text-white">
-      {/* Header Component */}
-      <Header />
-
       {/* Main Content */}
       <header className="flex flex-col items-center justify-center text-center mt-20">
         <h1 className="text-4xl font-bold sm:text-6xl">Welcome to SolZone</h1>
@@ -25,10 +20,7 @@ export default function Home() {
           not constitute financial advice. Always perform your own research
           before investing in any blockchain project.
         </p>
-        <a
-          href="#"
-          className="block mt-2 text-blue-300 hover:underline"
-        >
+        <a href="#" className="block mt-2 text-blue-300 hover:underline">
           Terms and Conditions
         </a>
       </footer>
