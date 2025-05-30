@@ -4,7 +4,7 @@ import { authOptions } from "@/lib/auth";
 import connectToDatabase from "@/lib/mongodb";
 import Post from "@/models/Post";
 import User from "@/models/User";
-import { createEscrowTransaction } from "@/lib/solana";
+import { createDirectTransaction } from "@/lib/solana";
 import mongoose from "mongoose";
 
 export async function POST(request: NextRequest) {
@@ -65,50 +65,61 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Create an escrow transaction
-    const escrowDetails = await createEscrowTransaction(
-      buyer.walletAddress,
-      post.seller.walletAddress,
-      post.price
-    );
+    // Create a direct transaction (buyer to seller)
+    try {
+      const transactionDetails = await createDirectTransaction(
+        buyer.walletAddress,
+        post.seller.walletAddress,
+        post.price
+      );
 
-    // Update the post with transaction details
-    post.status = "pending";
-    post.transaction = {
-      escrowId: escrowDetails.escrowAccount,
-      buyerId: buyer._id,
-      paymentStatus: "pending",
-      shippingStatus: "pending",
-    };
+      // Update the post with transaction details
+      post.status = "pending";
+      post.transaction = {
+        buyerId: buyer._id,
+        paymentStatus: "pending",
+        shippingStatus: "pending",
+      };
 
-    // If the quantity was 1, mark as sold
-    if (post.quantity === 1) {
-      post.status = "sold";
-    } else {
-      // Reduce the quantity by 1
-      post.quantity -= 1;
-    }
+      // If the quantity was 1, mark as sold out for future purchases
+      if (post.quantity === 1) {
+        post.quantity = 0;
+      } else {
+        // Reduce the quantity by 1
+        post.quantity -= 1;
+      }
 
-    await post.save();
+      await post.save();
 
-    // Return the escrow transaction details
-    return NextResponse.json(
-      {
-        success: true,
-        transaction: escrowDetails,
-        post: {
-          id: post._id,
-          title: post.itemName,
-          price: post.price,
-          status: post.status,
+      // Return the transaction details
+      return NextResponse.json(
+        {
+          success: true,
+          transaction: transactionDetails,
+          post: {
+            id: post._id,
+            title: post.itemName,
+            price: post.price,
+            status: post.status,
+          },
         },
-      },
-      { status: 200 }
-    );
-  } catch (error) {
+        { status: 200 }
+      );
+    } catch (error: any) {
+      console.error("Error creating transaction:", error);
+      return NextResponse.json(
+        {
+          error: `Failed to create transaction: ${
+            error.message || "Unknown error"
+          }`,
+        },
+        { status: 500 }
+      );
+    }
+  } catch (error: any) {
     console.error("Error processing purchase:", error);
     return NextResponse.json(
-      { error: "Internal server error" },
+      { error: `Internal server error: ${error.message || "Unknown error"}` },
       { status: 500 }
     );
   }

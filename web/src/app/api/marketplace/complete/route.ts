@@ -4,7 +4,7 @@ import { authOptions } from "@/lib/auth";
 import connectToDatabase from "@/lib/mongodb";
 import Post from "@/models/Post";
 import User from "@/models/User";
-import { releaseEscrowToSeller } from "@/lib/solana";
+import { releaseEscrowToSeller, verifyTransaction } from "@/lib/solana";
 
 export async function POST(request: NextRequest) {
   try {
@@ -33,6 +33,58 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Post not found" }, { status: 404 });
     }
 
+    // Get the user
+    const user = await User.findOne({
+      walletAddress: session.user.walletAddress,
+    });
+
+    if (!user) {
+      return NextResponse.json({ error: "User not found" }, { status: 404 });
+    }
+
+    // Handle transaction signature from Phantom wallet
+    if (data.transactionSignature) {
+      try {
+        // Verify the transaction on Solana
+        const transactionInfo = await verifyTransaction(
+          data.transactionSignature
+        );
+
+        if (!transactionInfo) {
+          return NextResponse.json(
+            { error: "Transaction could not be verified" },
+            { status: 400 }
+          );
+        }
+
+        // Update the post with transaction details
+        post.status = "sold";
+        post.transaction.paymentStatus = "completed";
+        post.transaction.transactionHash = data.transactionSignature;
+
+        await post.save();
+
+        return NextResponse.json(
+          {
+            success: true,
+            message: "Payment confirmed. Transaction complete.",
+            post: {
+              id: post._id,
+              title: post.itemName,
+              status: post.status,
+            },
+          },
+          { status: 200 }
+        );
+      } catch (error) {
+        console.error("Error verifying transaction:", error);
+        return NextResponse.json(
+          { error: "Failed to verify transaction" },
+          { status: 400 }
+        );
+      }
+    }
+
     // Check if this is a pending transaction
     if (post.status !== "pending") {
       return NextResponse.json(
@@ -42,14 +94,6 @@ export async function POST(request: NextRequest) {
     }
 
     // Check if the user is the buyer or seller
-    const user = await User.findOne({
-      walletAddress: session.user.walletAddress,
-    });
-
-    if (!user) {
-      return NextResponse.json({ error: "User not found" }, { status: 404 });
-    }
-
     const isSeller = post.seller._id.toString() === user._id.toString();
     const isBuyer =
       post.transaction.buyerId?.toString() === user._id.toString();

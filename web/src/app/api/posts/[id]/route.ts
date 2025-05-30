@@ -10,11 +10,11 @@ export async function GET(
     // Connect to the database
     await connectToDatabase();
 
-    // Get the post ID from the params
-    const postId = params.id;
+    // Get the post ID from the params - make sure to use params as an object, not promise
+    const { id } = params;
 
     // Find the post
-    const post = await Post.findById(postId).populate(
+    const post = await Post.findById(id).populate(
       "seller",
       "name nametag walletAddress"
     );
