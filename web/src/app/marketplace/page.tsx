@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useAuth } from "@/context/AuthContext";
 import { toast } from "react-hot-toast";
 
@@ -191,15 +192,19 @@ export default function MarketplacePage() {
             >
               <div className="relative aspect-square bg-gray-200 overflow-hidden">
                 {post.imageUrl ? (
-                  <img
+                  <Image
                     src={post.imageUrl}
                     alt={post.itemName}
-                    className="w-full h-full object-cover"
+                    fill
+                    className="object-cover"
                   />
                 ) : (
-                  <div className="w-full h-full flex items-center justify-center bg-gray-100 text-gray-400">
-                    No Image
-                  </div>
+                  <Image
+                    src="/placeholder.svg"
+                    alt="No image available"
+                    fill
+                    className="object-contain p-4"
+                  />
                 )}
                 <div className="absolute top-0 right-0 m-2 px-2 py-1 bg-blue-500 text-white text-xs rounded">
                   {post.category}
