@@ -4,14 +4,14 @@ import Post from "@/models/Post";
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     // Connect to the database
     await connectToDatabase();
 
-    // Get the post ID from the params - make sure to use params as an object, not promise
-    const { id } = params;
+    // Get the post ID from the params - await the params promise
+    const { id } = await params;
 
     // Find the post
     const post = await Post.findById(id).populate(
