@@ -1,0 +1,40 @@
+=== SOLANA ESCROW MARKETPLACE - YOUR PHANTOM WALLETS ===
+Generated: $(date)
+
+🏗️ DEPLOYED SMART CONTRACT:
+Program ID: 5bCqmbtwBZSvorHtu8PtsFPWoL1drC8Ps7vD5DgwqPPa
+Network: Solana Devnet
+Deploy Signature: 3AuagBV1UHxUB1dpB9UScGaJz3sCSxjhFrbUZqwnnJ7QacWR9wVLfXzwKQdZ1ZGe1HEgHfn7JsZKzoFx2Ks3rqFJ
+
+🔑 YOUR PHANTOM WALLET ADDRESSES:
+
+⚖️ AUTHORITY WALLET (controls escrow):
+Address: 57CEpYPybCqQiLmvS5oUUZbdUVrvYtaYPJW24SgyEcuT
+Recovery Phrase: repair monkey album thank exhibit final feature correct salon bonus hollow scene
+
+👤 BUYER WALLET:
+Address: HaQbuFFuwYfzbXVLAkhKFFp84rnvj4iFTz8gsujxKxz5
+Recovery Phrase: valid crush grape short eyebrow business arm sketch barely welcome recall jewel
+
+🏪 SELLER WALLET:
+Address: 2mXLvBcVMmqrFkrce1JFjY9Z75Y2DpEwWvUqUesVqKMX
+Recovery Phrase: repeat torch jelly cash invite mule kingdom type hill maze whisper little
+
+📱 ESCROW FUNCTIONS:
+1. initialize_escrow - Buyer creates escrow (only Authority can approve)
+2. release_funds_to_seller - Authority releases funds to seller
+3. cancel_escrow_and_refund_buyer - Authority cancels and refunds buyer (minus fee)
+
+🌐 EXPLORER LINKS (DEVNET):
+Contract: https://explorer.solana.com/address/5bCqmbtwBZSvorHtu8PtsFPWoL1drC8Ps7vD5DgwqPPa?cluster=devnet
+Authority: https://explorer.solana.com/address/57CEpYPybCqQiLmvS5oUUZbdUVrvYtaYPJW24SgyEcuT?cluster=devnet
+Buyer: https://explorer.solana.com/address/HaQbuFFuwYfzbXVLAkhKFFp84rnvj4iFTz8gsujxKxz5?cluster=devnet
+Seller: https://explorer.solana.com/address/2mXLvBcVMmqrFkrce1JFjY9Z75Y2DpEwWvUqUesVqKMX?cluster=devnet
+
+💡 INTEGRATION WITH YOUR MONGODB/WEBSITE:
+- Use these addresses in your web interface
+- Authority wallet MUST approve all transactions
+- Minimum escrow: 0.001 SOL, Maximum fee: 10%
+- Events are emitted for tracking in your database
+
+📁 PROJECT LOCATION: /mnt/c/Users/delet/Documents/GitHub/SolZone/SOL/solana_escrow_marketplace

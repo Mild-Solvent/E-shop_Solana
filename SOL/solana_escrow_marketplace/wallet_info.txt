@@ -1,0 +1,29 @@
+=== SOLANA ESCROW MARKETPLACE - COMPLETE WALLET INFO ===
+Generated: $(date)
+
+🔑 BUYER WALLET:
+Address: HaQbuFFuwYfzbXVLAkhKFFp84rnvj4iFTz8gsujxKxz5
+Recovery Phrase: valid crush grape short eyebrow business arm sketch barely welcome recall jewel
+Private Key JSON: [31,31,2,9,246,122,74,165,18,197,81,162,59,112,18,165,164,251,129,240,219,39,63,158,219,37,32,234,28,157,72,82,246,73,216,22,90,68,41,62,60,207,198,215,122,13,253,230,187,94,244,162,119,30,178,81,140,173,29,169,90,197,52,42]
+
+🔑 SELLER WALLET:
+Address: 2mXLvBcVMmqrFkrce1JFjY9Z75Y2DpEwWvUqUesVqKMX
+Recovery Phrase: repeat torch jelly cash invite mule kingdom type hill maze whisper little
+Private Key JSON: [131,155,12,80,197,36,28,236,48,72,74,95,238,172,25,78,149,30,62,31,121,10,29,41,187,213,59,77,111,54,189,78,26,67,141,74,35,34,230,28,232,217,38,109,21,39,185,55,101,36,139,215,83,115,66,64,39,7,70,76,169,173,140,110]
+
+🔑 DEVELOPER/MARKETPLACE AUTHORITY WALLET:
+Address: C9HoaxZbQjSNwWLBn52tLzcTYJ5V59cxuYykdTKeB8RF
+Recovery Phrase: repair monkey album thank exhibit final feature correct salon bonus hollow scene
+Private Key JSON: [162,60,64,70,37,155,41,183,83,252,81,45,63,153,36,241,111,144,233,125,143,4,185,217,37,69,33,184,241,225,68,137,165,144,51,188,194,105,111,150,7,90,115,187,199,40,156,45,245,32,10,79,29,24,122,94,167,30,45,211,73,242,211,26]
+
+🔑 PROGRAM KEYPAIR:
+Program ID: 5bCqmbtwBZSvorHtu8PtsFPWoL1drC8Ps7vD5DgwqPPa
+Private Key JSON: [65,211,222,27,43,250,56,72,200,36,219,97,200,204,1,81,0,196,175,184,207,239,250,100,28,31,162,44,10,185,51,99,68,49,226,58,37,241,118,25,229,2,241,198,224,39,83,185,244,126,11,74,82,77,185,164,20,13,232,242,52,116,165,117]
+
+🌐 EXPLORER LINKS:
+Contract: https://explorer.solana.com/address/5bCqmbtwBZSvorHtu8PtsFPWoL1drC8Ps7vD5DgwqPPa?cluster=devnet
+Buyer: https://explorer.solana.com/address/HaQbuFFuwYfzbXVLAkhKFFp84rnvj4iFTz8gsujxKxz5?cluster=devnet
+Seller: https://explorer.solana.com/address/2mXLvBcVMmqrFkrce1JFjY9Z75Y2DpEwWvUqUesVqKMX?cluster=devnet
+Authority: https://explorer.solana.com/address/C9HoaxZbQjSNwWLBn52tLzcTYJ5V59cxuYykdTKeB8RF?cluster=devnet
+
+📁 PROJECT LOCATION: /mnt/c/Users/delet/Documents/GitHub/SolZone/SOL/solana_escrow_marketplace

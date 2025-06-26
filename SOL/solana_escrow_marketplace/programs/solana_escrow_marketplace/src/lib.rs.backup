@@ -2,11 +2,11 @@ use anchor_lang::prelude::*;
 use anchor_lang::system_program::{Transfer, transfer};
 
 // TODO: Replace with your actual Program ID after deployment
-declare_id!("YourProgramIdGoesHere"); 
+declare_id!("5bCqmbtwBZSvorHtu8PtsFPWoL1drC8Ps7vD5DgwqPPa"); 
 
 // TODO: Replace with your marketplace's fee collection wallet address
 // This is a public key.
-const MARKETPLACE_FEE_WALLET_PUBKEY_STR: &str = "ReplaceWithYourMarketplaceFeeWalletPubkey";
+const MARKETPLACE_FEE_WALLET_PUBKEY_STR: &str = "57CEpYPybCqQiLmvS5oUUZbdUVrvYtaYPJW24SgyEcuT";
 
 #[program]
 pub mod solana_escrow_marketplace {
